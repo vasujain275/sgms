@@ -1,4 +1,8 @@
-# Student Grade Management System (SGMS)
+
+<p align="center">
+  <img src="Logo.png" alt="Logo">
+</p>
+
 
 ## Overview
 
