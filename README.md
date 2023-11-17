@@ -18,15 +18,12 @@ Welcome to the Student Grade Management System (SGMS)
 1. Add Student
 2. Update Student
 3. Delete Student
-4. Calculate Final Grade
+4. Update Grades
 5. View Student Database
-6. Save to File
-7. Load from File
-8. Generate Transcript
-9. Grade Analytics
-10. Exit
+6. Grade Analytics
+7. Exit
 
-Choose an option (1-10):
+Choose an option (1-7):
 ```
 
 
@@ -44,30 +41,18 @@ Choose an option (1-10):
    - Delete a student record from the system.
    - Prompt for confirmation before removing the student.
 
-4. **Calculate Final Grade:**
-   - Determine the final grade for a student.
-   - Incorporate assignments, quizzes, and exams in the calculation.
+4. **Update Grade:**
+   - Updates grades for a student.
+   - Can update as well as add the grades.
 
 5. **View Student Database:**
    - Display the entire database of student records.
    - Provide an overview of all registered students and their information.
 
-6. **Save to File:**
-   - Save the current state of the student database to a file.
-   - Enable users to persistently store the student records.
-
-7. **Load from File:**
-   - Load student records from a previously saved file.
-   - Restore the database to a previous state.
-
-8. **Generate Transcript:**
-   - Generate a detailed transcript for an individual student.
-   - Include information on each enrolled course and the corresponding final grade.
-
-9. **Grade Analytics:**
+6. **Grade Analytics:**
    - Offer in-depth analytics on overall class performance.
-   - Calculate and display class-wide statistics, facilitating performance evaluation.
+   - Calculate and display class-wide statistics and grades. 
 
-10. **Exit:**
+7. **Exit:**
     - Gracefully exit the SGMS application.
     - End the program execution.
