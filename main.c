@@ -16,7 +16,15 @@ int main(){
         students[id] = addStudent(id);
         id++;
         break;
-    
+    case 2:
+        int upOpt=0;
+        printf("Enter the id of Student for Updatation: \n");
+        printStudents(students);
+        printf("> ");
+        scanf("%d",&upOpt);
+        students[upOpt] = updateStudent(upOpt,students);
+        
+
     default:
         break;
     }

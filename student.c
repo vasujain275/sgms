@@ -5,12 +5,11 @@
 
 // Function Prototypes
 Student addStudent(int);
-Student updateStudent(Student);
+Student updateStudent(int id,Student arr[]);
 void printStudents(Student arr[]);
 
 // Functions Declarations
 Student addStudent(int id){
-    
     Student student1;
     student1.id = id;
 
@@ -32,7 +31,26 @@ Student addStudent(int id){
     return student1;
 }
 
-Student updateStudent(Student stu){
+Student updateStudent(int id,Student arr[]){
+    Student upStudnet = arr[id];
+    int updateOptions;
+    printf("What field you want to update?: ");
+    printf("1. Name\n2. Batch\n> ");
+    scanf("%d",&updateOptions);
+    switch (updateOptions)
+    {
+    case 1:
+        printf("Enter the Updated name: ");
+        scanf("%s\n",&upStudnet.name);
+        break;
+    case 2:
+        printf("Enter the Updated Batch: ");
+        scanf("%s\n",&upStudnet.batch);
+        break;
+    default:
+        break;
+    }
+    return upStudnet;
 
 }
 
