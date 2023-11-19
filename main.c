@@ -2,9 +2,10 @@
 #include"student.c"
 #include"student.h"
 
+Student students[100];
+int id=0;   
+
 int main(){
-    Student students[100];
-    int id=0;   
     printf("Welcome to the Student Grade Management System (SGMS)\n");
     printf("1. Add Student\n2. Update Student\n3. Delete Student\n4. Update Grade\n5. View Student Database\n6. Exit\n");
     printf("\nChoose an option (1-7):\n");
@@ -15,15 +16,24 @@ int main(){
     case 1:
         students[id] = addStudent(id);
         id++;
+        printStudents(students,id);
         break;
     case 2:
         int upOpt=0;
         printf("Enter the id of Student for Updatation: \n");
-        printStudents(students);
+        printStudents(students,id);
         printf("> ");
         scanf("%d",&upOpt);
         students[upOpt] = updateStudent(upOpt,students);
-        
+        break;
+    case 3:
+        int delOpt=0;
+        printf("Enter the id of Student for Deletion: \n");
+        printStudents(students, id);
+        printf("> ");
+        scanf("%d",&delOpt);
+        deleteStudent(students, delOpt, &id);
+        break;
 
     default:
         break;

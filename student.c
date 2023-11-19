@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <stdlib.h>
 
 // Structs Import
 #include "student.h"
@@ -6,7 +7,8 @@
 // Function Prototypes
 Student addStudent(int);
 Student updateStudent(int id,Student arr[]);
-void printStudents(Student arr[]);
+void printStudents(Student arr[],int size);
+void deleteStudent(Student students[], int id, int *size);
 
 // Functions Declarations
 Student addStudent(int id){
@@ -14,20 +16,27 @@ Student addStudent(int id){
     student1.id = id;
 
     printf("Enter Student Name: ");
-    scanf("%s\n",&student1.name);
+    scanf("%s", student1.name);
+    printf("\n");
     printf("Enter Student's Batch (eg - CSE-G): "); 
-    scanf("%s\n",&student1.batch);
+    scanf("%s", student1.batch);
+    printf("\n");
     printf("Enter Student's FOCP Marks: ");
-    scanf("%f",&student1.focp);
+    scanf("%f", &student1.focp);
+    printf("\n");
     printf("Enter Student's PSDT Marks: ");
-    scanf("%f",&student1.psdt);
+    scanf("%f", &student1.psdt);
+    printf("\n");
     printf("Enter Student's Maths Marks: ");
-    scanf("%f",&student1.maths);
+    scanf("%f", &student1.maths);
+    printf("\n");
     printf("Enter Student's Chemistry Marks: ");
-    scanf("%f",&student1.chemistry);
+    scanf("%f", &student1.chemistry);
+    printf("\n");
     printf("Enter Student's EGD Marks: ");
-    scanf("%f",&student1.egd);
-
+    scanf("%f", &student1.egd);
+    printf("\n");
+ 
     return student1;
 }
 
@@ -41,11 +50,13 @@ Student updateStudent(int id,Student arr[]){
     {
     case 1:
         printf("Enter the Updated name: ");
-        scanf("%s\n",&upStudnet.name);
+        scanf("%s",&upStudnet.name);
+        printf("\n");
         break;
     case 2:
         printf("Enter the Updated Batch: ");
-        scanf("%s\n",&upStudnet.batch);
+        scanf("%s",&upStudnet.batch);
+        printf("\n");
         break;
     default:
         break;
@@ -54,17 +65,23 @@ Student updateStudent(int id,Student arr[]){
 
 }
 
-void printStudents(Student arr[]){
-    for (int i = 0; i < sizeof(arr)/sizeof(arr[0]); i++)
+void printStudents(Student arr[], int size){
+    printf("%-10s%-20s%-20s%-10s%-10s%-10s%-10s%-10s\n", "ID", "Name", "Batch", "FOCP", "PSDT", "Maths", "Chemistry", "EGD");
+    for (int i = 0; i < size; i++)
     {
-            printf("%d\t",arr[i].id);
-            printf("%s\t",arr[i].name);
-            printf("%s\t",arr[i].batch);
-            printf("%d\t",arr[i].focp);
-            printf("%d\t",arr[i].psdt);
-            printf("%d\t",arr[i].maths);
-            printf("%d\t",arr[i].chemistry);
-            printf("%d\t\n",arr[i].egd);
+        printf("%-10d%-20s%-20s%-10.2f%-10.2f%-10.2f%-10.2f%-10.2f\n", arr[i].id, arr[i].name, arr[i].batch, arr[i].focp, arr[i].psdt, arr[i].maths, arr[i].chemistry, arr[i].egd);
     }       
-    
+}
+
+void deleteStudent(Student students[], int id, int *size) {
+    if (id < 0 || id >= *size) {
+        printf("Invalid ID\n");
+        return;
+    }
+
+    for (int i = id; i < *size - 1; i++) {
+        students[i] = students[i + 1];
+    }
+
+    (*size)--;
 }
