@@ -9,6 +9,7 @@ Student addStudent(int);
 Student updateStudent(int id,Student arr[]);
 void printStudents(Student arr[],int size);
 void deleteStudent(Student students[], int id, int *size);
+Student updateGrade(int id, Student arr[]);
 
 // Functions Declarations
 Student addStudent(int id){
@@ -44,7 +45,7 @@ Student updateStudent(int id,Student arr[]){
     Student upStudnet = arr[id];
     int updateOptions;
     printf("What field you want to update?: ");
-    printf("1. Name\n2. Batch\n> ");
+    printf("\n1. Name\n2. Batch\n> ");
     scanf("%d",&updateOptions);
     switch (updateOptions)
     {
@@ -70,7 +71,8 @@ void printStudents(Student arr[], int size){
     for (int i = 0; i < size; i++)
     {
         printf("%-10d%-20s%-20s%-10.2f%-10.2f%-10.2f%-10.2f%-10.2f\n", arr[i].id, arr[i].name, arr[i].batch, arr[i].focp, arr[i].psdt, arr[i].maths, arr[i].chemistry, arr[i].egd);
-    }       
+    }
+    printf("\n");       
 }
 
 void deleteStudent(Student students[], int id, int *size) {
@@ -84,4 +86,44 @@ void deleteStudent(Student students[], int id, int *size) {
     }
 
     (*size)--;
+}
+
+Student updateGrade(int id, Student arr[]){
+    Student upStudent = arr[id];
+    int updateOptions;
+    printf("Which grade you want to update?: ");
+    printf("\n1. FOCP\n2. PSDT\n3. Maths\n4. Chemistry\n5. EGD\n> ");
+    scanf("%d", &updateOptions);
+    switch (updateOptions)
+    {
+    case 1:
+        printf("Enter the updated FOCP marks: ");
+        scanf("%f", &upStudent.focp);
+        printf("\n");
+        break;
+    case 2:
+        printf("Enter the updated PSDT marks: ");
+        scanf("%f", &upStudent.psdt);
+        printf("\n");
+        break;
+    case 3:
+        printf("Enter the updated Maths marks: ");
+        scanf("%f", &upStudent.maths);
+        printf("\n");
+        break;
+    case 4:
+        printf("Enter the updated Chemistry marks: ");
+        scanf("%f", &upStudent.chemistry);
+        printf("\n");
+        break;
+    case 5:
+        printf("Enter the updated EGD marks: ");
+        scanf("%f", &upStudent.egd);
+        printf("\n");
+        break;
+    default:
+        printf("Invalid option\n");
+        break;
+    }
+    return upStudent;
 }
